@@ -3,6 +3,26 @@ export const generate100Text = () => {
   generateText(TEXTLENGTH);
 };
 
+export const generate255Text = () => {
+  const TEXTLENGTH = 255;
+  generateText(TEXTLENGTH);
+};
+
+export const generate500Text = () => {
+  const TEXTLENGTH = 500;
+  generateText(TEXTLENGTH);
+};
+
+export const generate1000Text = () => {
+  const TEXTLENGTH = 1000;
+  generateText(TEXTLENGTH);
+};
+
+export const generate2000Text = () => {
+  const TEXTLENGTH = 2000;
+  generateText(TEXTLENGTH);
+};
+
 export const generateText = (textLength: number) => {
   const textInput = <HTMLInputElement>document.getElementById('textInput');
   const dummy = 'テスト用の文章です。'; // 10文字のテキストで、これを繰り返す
