@@ -5,6 +5,8 @@ import {
   generate1000Text,
   generate2000Text,
 } from './text/generate';
+import { countTextInputEvent } from './text/count';
+import { getTextInput } from './text/util';
 
 const btn100 = document.getElementById('generate100');
 btn100!.addEventListener('click', generate100Text);
@@ -20,3 +22,6 @@ btn1000!.addEventListener('click', generate1000Text);
 
 const btn2000 = document.getElementById('generate2000');
 btn2000!.addEventListener('click', generate2000Text);
+
+const textInput = getTextInput();
+textInput.addEventListener('input', countTextInputEvent);

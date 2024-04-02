@@ -1,3 +1,5 @@
+import { getTextInput } from './util';
+
 export const generate100Text = () => {
   const TEXTLENGTH = 100;
   generateText(TEXTLENGTH);
@@ -23,8 +25,8 @@ export const generate2000Text = () => {
   generateText(TEXTLENGTH);
 };
 
-export const generateText = (textLength: number) => {
-  const textInput = <HTMLInputElement>document.getElementById('textInput');
+const generateText = (textLength: number) => {
+  const textInput = getTextInput();
   const dummy = 'テスト用の文章です。'; // 10文字のテキストで、これを繰り返す
   const repeatNumber = textLength / dummy.length;
   const newText = dummy.repeat(repeatNumber); // 10桁単位でダミーテキストを作る
@@ -38,4 +40,8 @@ export const generateText = (textLength: number) => {
     const finalText = newText + dummy.slice(0, difference);
     textInput.value = finalText;
   }
+
+  // 文字数表示も更新するため、input Eventを発火させる
+  const event = new Event('input');
+  textInput.dispatchEvent(event);
 };
