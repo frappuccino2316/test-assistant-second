@@ -25,3 +25,10 @@ btn2000!.addEventListener('click', generate2000Text);
 
 const textInput = getTextInput();
 textInput.addEventListener('input', countTextInputEvent);
+
+const copyIcon = document.getElementById('copy-icon');
+copyIcon!.addEventListener('click', () => {
+  const textInput = getTextInput();
+  const text = textInput.value;
+  if (text) navigator.clipboard.writeText(text);
+});
