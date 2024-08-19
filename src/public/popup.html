@@ -30,6 +30,7 @@
         border: 1px solid #ccc;
         border-radius: 5px;
       }
+
       #copy-icon {
         vertical-align: middle;
       }
@@ -41,6 +42,41 @@
         position: relative;
         top: 3px;
       }
+      .copy {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .copy p {
+        margin: 0;
+        padding: 0;
+      }
+      .tooltip {
+        display: none;
+        position: absolute;
+        padding: 10px;
+        font-size: 12px;
+        line-height: 1.6em;
+        color: #fff;
+        border-radius: 5px;
+        background: #000;
+        width: 100px;
+      }
+      .tooltip:before {
+        content: '';
+        position: absolute;
+        top: -24px;
+        right: 40%;
+        border: 15px solid transparent;
+        border-top: 15px solid #000;
+        margin-left: -15px;
+        transform: rotateZ(180deg);
+      }
+      .copy:active .tooltip {
+        display: inline-block;
+        top: 50px;
+        left: -40px;
+      }
     </style>
   </head>
   <body>
@@ -50,7 +86,10 @@
         <label for="textInput">文字列を生成</label>
         <div class="input-text">
           <input type="text" id="textInput" placeholder="Test Text" />
-          <img id="copy-icon" src="./copy.png" alt="コピーアイコン" />
+          <div class="copy">
+            <img id="copy-icon" src="./copy.png" alt="コピーアイコン" />
+            <div class="tooltip">コピーしました</div>
+          </div>
         </div>
         <p>文字数：<span id="count">0</span></p>
         <input type="button" id="generate100" value="100文字" />
