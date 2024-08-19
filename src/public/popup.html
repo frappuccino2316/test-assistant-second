@@ -76,6 +76,16 @@
         display: inline-block;
         top: 50px;
         left: -40px;
+        animation: fadeOut 2s; /*keyframesで命名したものを使う。2秒間で消える*/
+        animation-fill-mode: both; /*0%の時と100%の時の状態を保つ*/
+      }
+      @keyframes fadeOut {
+        0% {
+          opacity: 1; /*初めに存在する*/
+        }
+        100% {
+          opacity: 0; /*最後に消える*/
+        }
       }
     </style>
   </head>
