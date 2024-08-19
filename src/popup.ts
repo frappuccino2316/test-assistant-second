@@ -28,7 +28,26 @@ textInput.addEventListener('input', countTextInputEvent);
 
 const copyIcon = document.getElementById('copy-icon');
 copyIcon!.addEventListener('click', () => {
+  // クリップボードにコピーする
   const textInput = getTextInput();
   const text = textInput.value;
   if (text) navigator.clipboard.writeText(text);
+
+  // ツールチップを表示させてフェードアウトさせる処理
+  const tooltip = document.getElementById('tooltip');
+  tooltip!.classList.add('show');
+  setTimeout(() => {
+    tooltip!.classList.add('fade-out');
+  }, 1000);
+  // フェードアウト完了後にツールチップを非表示にする
+  tooltip!.addEventListener(
+    'transitionend',
+    function () {
+      if (tooltip!.classList.contains('fade-out')) {
+        tooltip!.classList.remove('show', 'fade-out');
+        // tooltip!.style.display = 'none';
+      }
+    },
+    { once: true }
+  );
 });
